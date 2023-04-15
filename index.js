@@ -3,6 +3,8 @@ const emojiEl = document.getElementById("emoji-container");
 const inputEl = document.getElementById("emoji-input");
 const pushBtn = document.getElementById("push-btn");
 const unshiftBtn = document.getElementById("unshift-btn");
+const popBtn = document.getElementById("pop-btn");
+const shiftBtn = document.getElementById("shift-btn");
 
 function renderEmojis() {
   emojiEl.innerHTML = "";
@@ -32,3 +34,13 @@ unshiftBtn.addEventListener("click", function () {
     renderEmojis();
   }
 });
+
+popBtn.addEventListener("click", function () {
+  myEmojis.pop();
+  renderEmojis();
+});
+
+shiftBtn.addEventListener("click", function() {
+    myEmojis.shift();
+    renderEmojis();
+})
