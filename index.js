@@ -1,8 +1,11 @@
 const myEmojis = ["👨‍💻", "⛷", "🍲"];
 const emojiEl = document.getElementById("emoji-container");
+const inputEl = document.getElementById("emoji-input");
 const pushBtn = document.getElementById("push-btn");
+const unshiftBtn = document.getElementById("unshift-btn");
 
 function renderEmojis() {
+  emojiEl.innerHTML = "";
   for (let i = 0; i < myEmojis.length; i++) {
     const emojiSpan = document.createElement("span");
     emojiSpan.textContent = myEmojis[i];
@@ -13,12 +16,19 @@ function renderEmojis() {
 renderEmojis();
 
 pushBtn.addEventListener("click", function () {
-  const inputEl = document.getElementById("emoji-input");
   const emoji = inputEl.value;
   if (emoji) {
     myEmojis.push(emoji);
     inputEl.value = "";
-    emojiEl.innerHTML = "";
+    renderEmojis();
+  }
+});
+
+unshiftBtn.addEventListener("click", function () {
+  const emoji = inputEl.value;
+  if (emoji) {
+    myEmojis.unshift(emoji);
+    inputEl.value = "";
     renderEmojis();
   }
 });
